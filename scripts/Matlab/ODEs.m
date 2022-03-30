@@ -75,7 +75,7 @@ W30 = y(59); W31 = y(60); W32 = y(61); W40 = y(62); W41 = y(63); W42 = y(64); W5
 %% Membrane Potential %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     C = 1;                                                  % uF/cm^2  membrane capacitance
-    dvdt = (0*Iapp + INa + IK + IL)/C;   
+    dvdt = (Iapp + INa + IK + IL)/C;   
 
 %% Calcium Dynamics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -87,7 +87,6 @@ W30 = y(59); W31 = y(60); W32 = y(61); W40 = y(62); W41 = y(63); W42 = y(64); W5
 %% IP3 Production %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                          
     
     [Jplc, Jdeg, t_ip3, dPLCdt, dGdt, dGlutdt] = IP3Production(t, Cac, IP3, PLC, G, abeta_dose, cell_condition);
-    
     
     dIP3dt = (Jplc - Jdeg)/t_ip3;
 
