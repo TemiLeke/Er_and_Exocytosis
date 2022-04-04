@@ -451,14 +451,14 @@ end
 %% Plot Images
 
 num_channels = 35;
-    
+channel_index = int32(((num_channels - 5)/5) + 1);   
 figure
 
     % Facilitation Computed Using Release Probability vs Stimulus Number
     subplot(3, 2, 1)
-    plot(t(1: 80000), rel_rate_WT{2}((1: 80000), 7),"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
+    plot(t(1: 80000), rel_rate_WT{2}((1: 80000), channel_index),"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
-    plot(t(1: 80000), rel_rate_AD{2}((1: 80000), 7),"r-", 'LineWidth', 0.85, 'MarkerSize', 8)
+    plot(t(1: 80000), rel_rate_AD{2}((1: 80000), channel_index),"r-", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
     str = {'Higher AD Coupling'};
     text(6, 0.35, str, 'FontSize', 5, 'Color','k')
@@ -501,7 +501,7 @@ figure
     hold on
     plot(Pr_matrix_AD_stim1{2}, Cumulative_Ca_VGCC_AD_stim2_fit{2}, "r-", 'LineWidth', 0.85, 'MarkerSize', 8)
     ylabel('Cumulative [Ca^{2+}]_{AZ} (\muM-ms)','FontSize',4,'FontWeight','bold','Color','k')
-    xlabel('Pr','FontSize',4,'FontWeight','bold','Color','k')
+    xlabel('Pr_{1}','FontSize',4,'FontWeight','bold','Color','k')
     set(gca, 'box', 'off');
     a = get(gca,'XTickLabel'); 
     set(gca,'XTickLabel',a,'FontName','Times','fontsize',6);

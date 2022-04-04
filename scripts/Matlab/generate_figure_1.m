@@ -8,7 +8,7 @@ load ../../data/Figure1_data/DoseResp_of_Calyx.csv      % Data obtained from Sun
 load ../../data/Figure1_data/TimeToPeak_of_Calyx.csv    % Data obtained from Sun, J et al. (2007). https://doi.org/10.1038/nature06308
 load ../../data/Figure1_data/SpontaneousRelRate_from_Suhita_2010.csv % Data obtained from Nadkarni, S. et al. (2010) doi:10.1371/journal.pcbi.1000983
 load ../../data/Figure1_data/DoseResp_of_cMFBs.csv      % Data obtained from Eshra et al. eLife (2021) DOI: https://doi.org/10.7554/eLife.704081
-load ../../data/Figure1_data/TimeToPeak_of_cMFBs.csv    % Data obtained from Eshra et al. (2021) DOI: https://doi.org/10.7554/eLife.704081
+load ../../data/Figure1_data/Delay_of_cMFBs.csv    % Data obtained from Eshra et al. (2021) DOI: https://doi.org/10.7554/eLife.704081
  
 
 %% Parse Calyx of Held Data
@@ -19,11 +19,15 @@ load ../../data/Figure1_data/TimeToPeak_of_cMFBs.csv    % Data obtained from Esh
     Calyx_TTP_Time = TimeToPeak_of_Calyx(:, 2);     % Corresponding Delay Time (Measured as time to peak release rate)
   
 %% Parse cMFB data 
-  
+
+% Delay in Eshra et al 2021 corresponds to time from onset of the
+% UV-illumination to the onset of the rise of membrane capacitance. We do
+% not test this here. 
+
     cMFB_Calcium = DoseResp_of_cMFBs(:, 1);         % Calcium Concentration for evoked peak release rate    
     cMFB_PeakRelRate = DoseResp_of_cMFBs(:, 2);     % Corresponding Peak Rate 
-    cMFB_Calcium_ttp = TimeToPeak_of_cMFBs(:, 1);    % Calcium Concentration for evoked delay
-    cMFB_TTP_Time = TimeToPeak_of_cMFBs(:, 2);     % Corresponding Delay Time (Measured as time to peak release rate) 
+    cMFB_Calcium_delay = Delay_of_cMFBs(:, 1); % Calcium Concentration for evoked delay
+    cMFB_Delay_Time = Delay_of_cMFBs(:, 2);        % Corresponding Delay Time (Measured as time to peak release rate) 
     
     
 %% Simulation Variables
@@ -257,13 +261,14 @@ for i=1:length(Cac)
     plot(t_allo, AllostericModelRate{i}, 'LineWidth', 1, 'MarkerSize', 10)
 end
 
-%title('Total release from Allosteric model following Ca^{2+} clamp','FontSize',12,'FontWeight','bold','Color','k')
+ttle = title('B','FontSize',12,'FontWeight','bold','Color','k');
 ylabel('Release Rate (vesicles/ms)','FontSize',6,'FontWeight','bold','Color','k')
 xlabel('time (ms)','FontSize',6,'FontWeight','bold','Color','k')
 set(gca, 'ColorOrder', ColorSet);
 set(gca, 'Colormap', ColorSet);
-set(gca,'ytick',[])
-set(gca,'yticklabel',[])
+%set(gca,'ytick',[])
+%set(gca,'yticklabel',[])
+set(ttle,'position',get(ttle,'position')-[0 0.3 0])
 colorbar('Ticks',[0.5, 6, 12],...
          'TickLabels',{'0.5 (\muM)','6','12  (\muM)'})
 caxis([min(Cac) max(Cac)])
@@ -325,13 +330,14 @@ for i=1:length(Cac)
     plot(t_allo, DualSensorModelRate{i}, 'LineWidth', 1, 'MarkerSize', 10)
 end
 
-%title('Total release from Dual-sensor model following Ca^{2+} clamp','FontSize',12,'FontWeight','bold','Color','k')
+ttle = title('A','FontSize',12,'FontWeight','bold','Color','k');
 ylabel('Release Rate (vesicles/ms)','FontSize',6,'FontWeight','bold','Color','k')
 xlabel('time (ms)','FontSize',6,'FontWeight','bold','Color','k')
 set(gca, 'ColorOrder', ColorSet);
 set(gca, 'Colormap', ColorSet);
-set(gca,'ytick',[])
-set(gca,'yticklabel',[])
+%set(gca,'ytick',[])
+%set(gca,'yticklabel',[])
+set(ttle,'position',get(ttle,'position')-[0 0.3 0])
 colorbar('Ticks',[0.5, 6, 12],...
          'TickLabels',{'0.5 (\muM)','6','12  (\muM)'})
 caxis([min(Cac) max(Cac)])
@@ -402,10 +408,12 @@ hold on
 plot(Ca_temp(Dual_ttp_temp < 60), Dual_ttp_temp(Dual_ttp_temp < 60) - Ca_stimulus_on_time,...
     "-", "Color",'#0072BD', 'LineWidth', 1, 'MarkerSize', 10)
 hold on
-plot(cMFB_Calcium_ttp, cMFB_TTP_Time ,".", "Color", '#000000', 'LineWidth', 1, 'MarkerSize', 10)
-hold on
+%plot(cMFB_Calcium_delay, cMFB_Delay_Time ,".", "Color", '#000000', 'LineWidth', 1, 'MarkerSize', 10)
+%hold on
 
-legend({"Calyx of Held", 'Allosteric', 'Dual Sensor'},'Location', 'northeast', 'FontSize',6)
+title('D','FontSize',10,'FontWeight','bold','Color','k');
+legnd = legend({"Calyx of Held", 'Allosteric', 'Dual Sensor'},'Location', 'northeast', 'FontSize',6);
+set(legnd,'position',get(legnd,'position')-[0 0.1 0 0])
 ylabel('Time to peak release (ms)','FontSize',6,'FontWeight','bold','Color','k')
 xlabel('Ca^{2+} (\muM)','FontSize',6,'FontWeight','bold','Color','k')
 set(gca, 'box', 'off')
@@ -443,8 +451,11 @@ hold on
 str = {'Dual Sensor:',...
         strcat('EC_{50} =', " ", num2str(round(10^(params_dual(3)))), " ", "(\muM)"),...
         strcat('Hill Slope =', " ", num2str(round(params_dual(4))))};
+    
+title('C','FontSize',12,'FontWeight','bold','Color','k');
 text(0.02, 7, str, 'FontSize',5,'Color','k')
-legend({"Calyx of Held", 'Allosteric', 'Dual Sensor', 'cMFBs | Eshra et al.  2021'},'Location', 'northwest', 'FontSize',3)
+legnd = legend({"Calyx of Held", 'Allosteric', 'Dual Sensor', 'cMFBs | Eshra et al.  2021'},'Location', 'southeast', 'FontSize',3);
+set(legnd,'position',get(legnd,'position')-[0.0 0.0 0.0 0.0])
 ylabel('Peak release rate (vesicle ms^{-1})','FontSize',6,'FontWeight','bold','Color','k')
 xlabel('Ca^{2+} (\muM)','FontSize',6,'FontWeight','bold','Color','k')
 set(gca, 'box', 'off')

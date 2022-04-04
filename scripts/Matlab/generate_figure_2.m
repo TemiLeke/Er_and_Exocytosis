@@ -566,9 +566,9 @@ hold on
 plot(t(1: 30000), rel_rate_AD{2}((1: 30000), 7),"r-", 'LineWidth',  0.85, 'MarkerSize', 8)
 hold on
 legend({'WT', 'AD'},'Location', 'northeast', 'FontSize',3)
-str = {'Higher AD Coupling with Parameters;','AD: k = 15 , K_{c} = 10 (\muM)',...
-      'WT: k = 5 , K_{c} = 20 (\muM)'};
-text(6, 0.35, str, 'FontSize', 5, 'Color','k')
+%str = {'Higher AD Coupling with Parameters;','AD: k = 15 , K_{c} = 10 (\muM)',...
+%      'WT: k = 5 , K_{c} = 20 (\muM)'};
+%text(6, 0.35, str, 'FontSize', 5, 'Color','k')
 ylabel('Release Rate (vesicles ms^{-1})','FontSize',4,'FontWeight','bold','Color','k')
 xlabel('Time (ms)','FontSize',4,'FontWeight','bold','Color','k')
 set(gca, 'box', 'off')
