@@ -460,8 +460,8 @@ figure
     hold on
     plot(t(1: 80000), rel_rate_AD{2}((1: 80000), channel_index),"r-", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
-    str = {'Higher AD Coupling'};
-    text(6, 0.35, str, 'FontSize', 5, 'Color','k')
+    %str = {'Higher AD Coupling'};
+    %text(6, 0.35, str, 'FontSize', 5, 'Color','k')
     ylabel('Release Rate (vesicles ms^{-1})','FontSize',4,'FontWeight','bold','Color','k')
     xlabel('Time (ms)','FontSize',4,'FontWeight','bold','Color','k')
     set(gca, 'box', 'off')

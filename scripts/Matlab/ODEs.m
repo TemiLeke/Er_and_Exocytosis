@@ -57,7 +57,7 @@ W30 = y(59); W31 = y(60); W32 = y(61); W40 = y(62); W41 = y(63); W42 = y(64); W5
     
 %%  Currents
 
-   [INa, IK, IL, dhNadt, dnKdt] = CurrentsandGatingVariables(V, hNa, nK);
+   [INa, IK, IL, dhNadt, dnKdt] = CurrentsandGatingVariables(Cac, V, hNa, nK);
         
 %% Calculating Endoplasmic Reticulum Calcium %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

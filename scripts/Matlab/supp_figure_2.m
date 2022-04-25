@@ -195,7 +195,7 @@ for condition_index = 1:3
     elseif condition_index == 2
         condition = "AD_HigherCoupling";
     elseif condition_index == 3
-        condition = "WT_Highe rCoupling" ;
+        condition = "WT_HigherCoupling" ;
     end
     
     
@@ -455,7 +455,7 @@ num_channels = 35;
 figure
 
     % Facilitation Computed Using Release Probability vs Stimulus Number
-    subplot(1, 3, 1)
+    subplot(2, 2, 1)
     plot(t(1: 80000), rel_rate_WT{2}((1: 80000), 7),"b--", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
     plot(t(1: 80000), rel_rate_WT{3}((1: 80000), 7),"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
@@ -466,7 +466,6 @@ figure
     hold on
     %str = {'Higher AD Coupling'};
     %text(6, 0.35, str, 'FontSize', 5, 'Color','k')
-    legend({'WT-NC', 'WT-HC', 'AD-HC','AD-NC'},'Location', 'northeast', 'FontSize',6)
     ylabel('Release Rate (vesicles ms^{-1})','FontSize',4,'FontWeight','bold','Color','k')
     xlabel('Time (ms)','FontSize',4,'FontWeight','bold','Color','k')
     set(gca, 'box', 'off')
@@ -476,53 +475,47 @@ figure
     title('(A)', 'FontSize', 7);
     hold off
     
- 
-    subplot(1, 3, 2)
-    plot(Pr_matrix_WT_stim1{2}, PPR_WT{2} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    
+    subplot(2, 2, 2)
+    plot(t(1: 80000), rel_rate_WT{2}((1: 80000), 7),"b--", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
+    plot(t(1: 80000), rel_rate_WT{3}((1: 80000), 7),"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(t(1: 80000), rel_rate_AD{2}((1: 80000), 7),"r-", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(t(1: 80000), rel_rate_AD{3}((1: 80000), 7),"r--", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    ylabel('Release Rate (vesicles ms^{-1})','FontSize',4,'FontWeight','bold','Color','k')
+    xlabel('Time (ms)','FontSize',4,'FontWeight','bold','Color','k')
+    axis([0 80 0 0.2])
+    set(gca, 'box', 'off')
+    a = get(gca,'XTickLabel');
+    set(gca,'XTickLabel',a,'FontName','Times','fontsize',6);
+    set(gca,'XTickLabelMode','auto') 
+    title('(B)', 'FontSize', 7);
+    hold off
+    
+    subplot(2, 2, 3)
     plot(Pr_matrix_WT_stim1{2}, PPR_WT_fit{2} ,"b--", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
-    plot(Pr_matrix_WT_stim1{2}, PPR_WT{3} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_WT_stim1{2}, PPR_WT_fit{3} ,"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_AD_stim1{2}, PPR_AD{2} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    plot(Pr_matrix_WT_stim1{3}, PPR_WT_fit{3} ,"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
     plot(Pr_matrix_AD_stim1{2}, PPR_AD_fit{2}, "r-", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
-    plot(Pr_matrix_AD_stim1{2}, PPR_AD{3} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    plot(Pr_matrix_AD_stim1{3}, PPR_AD_fit{3}, "r--", 'LineWidth', 0.85, 'MarkerSize', 8)
     hold on
-    plot(Pr_matrix_AD_stim1{2}, PPR_AD_fit{3}, "r--", 'LineWidth', 0.85, 'MarkerSize', 8)
+    plot(Pr_matrix_WT_stim1{2}, PPR_WT{2} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_WT_stim1{3}, PPR_WT{3} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_AD_stim1{2}, PPR_AD{2} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_AD_stim1{3}, PPR_AD{3} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    legend({'WT-NC', 'WT-HC', 'AD-HC','AD-NC'},'Location', 'northeast', 'FontSize',6)
     ylabel('PPR','FontSize',4,'FontWeight','bold','Color','k')
     xlabel('Pr','FontSize',4,'FontWeight','bold','Color','k')
     xlim([0 0.6])
-    set(gca, 'box', 'off');
-    a = get(gca,'XTickLabel');
-    set(gca,'XTickLabel',a,'FontName','Times','fontsize',6);
-    set(gca,'XTickLabelMode','auto')
-    title('(B)', 'FontSize', 7);
-    hold off
-
-    
-    subplot(1, 3, 3)
-    plot(Pr_matrix_WT_stim1{2}, Pr_matrix_WT_stim2{2} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_WT_stim1{2}, Pr_matrix_WT_stim2_fit{2} ,"b--", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_WT_stim1{2}, Pr_matrix_WT_stim2{3} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_WT_stim1{2}, Pr_matrix_WT_stim2_fit{3} ,"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_AD_stim1{2}, Pr_matrix_AD_stim2{2} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_AD_stim1{2}, Pr_matrix_AD_stim2_fit{2}, "r-", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_AD_stim1{2}, Pr_matrix_AD_stim2{3} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    plot(Pr_matrix_AD_stim1{2}, Pr_matrix_AD_stim2_fit{3}, "r--", 'LineWidth', 0.85, 'MarkerSize', 8)
-    hold on
-    ylabel('Pr_{2}', 'FontSize',4,'FontWeight','bold','Color','k')
-    xlabel('Pr_{1}','FontSize',4,'FontWeight','bold','Color','k')
     set(gca, 'box', 'off');
     a = get(gca,'XTickLabel');
     set(gca,'XTickLabel',a,'FontName','Times','fontsize',6);
@@ -531,9 +524,36 @@ figure
     hold off
 
     
+    subplot(2, 2, 4)
+    plot(Pr_matrix_WT_stim1{2}, Pr_matrix_WT_stim2{2} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_WT_stim1{2}, Pr_matrix_WT_stim2_fit{2} ,"b--", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_WT_stim1{3}, Pr_matrix_WT_stim2{3} ,"b.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_WT_stim1{3}, Pr_matrix_WT_stim2_fit{3} ,"b-", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_AD_stim1{2}, Pr_matrix_AD_stim2{2} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_AD_stim1{2}, Pr_matrix_AD_stim2_fit{2}, "r-", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_AD_stim1{3}, Pr_matrix_AD_stim2{3} ,"r.", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    plot(Pr_matrix_AD_stim1{3}, Pr_matrix_AD_stim2_fit{3}, "r--", 'LineWidth', 0.85, 'MarkerSize', 8)
+    hold on
+    ylabel('Pr_{2}', 'FontSize',4,'FontWeight','bold','Color','k')
+    xlabel('Pr_{1}','FontSize',4,'FontWeight','bold','Color','k')
+    set(gca, 'box', 'off');
+    a = get(gca,'XTickLabel');
+    set(gca,'XTickLabel',a,'FontName','Times','fontsize',6);
+    set(gca,'XTickLabelMode','auto')
+    title('(D)', 'FontSize', 7);
+    hold off
+
+    
 %Get Current Figure (GCF) & Set image size before saving image
 width = 5.34*2.54;  % cm 
-height = 4.5*2.54; % cm
+height = 5.98*2.54; % cm
 set(gcf, 'PaperPosition', [0, 0, width / 2.54, height / 2.54])
 
 %Set the resolution of 1000dpi and save the plot in TIFF format 

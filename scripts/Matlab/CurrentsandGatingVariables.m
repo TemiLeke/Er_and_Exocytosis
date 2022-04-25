@@ -1,4 +1,4 @@
-function [INa, IK, ICl, dhNadt, dnKdt] = CurrentsandGatingVariables(V, hNa, nK)
+function [INa, IK, ICl, dhNadt, dnKdt] = CurrentsandGatingVariables(Cac, V, hNa, nK)
 
 
 %% Nernst potential for Na, K, and Cl %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
