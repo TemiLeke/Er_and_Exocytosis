@@ -3,9 +3,11 @@ ________________________________________________________________________________
 
 The code was used in the following publication:
 
-#### Title: Upregulated Ca2+ release from the endoplasmic reticulum leads to impaired neurotransmitter release in Alzheimer’s disease.
-#### Authors:  Temitope Adeoye (1), David A Rabson (1), Ghanim Ullah (1), and Angelo Demuro(2)
+#### Title: Upregulated Ca2+ release from the endoplasmic reticulum leads to impaired presynaptic function in Alzheimer’s disease.
+#### Authors:  Temitope Adeoye (1), Syed Shah (1), David A Rabson (1), Ghanim Ullah (1), and Angelo Demuro(2), 
 #### (1) Department of Physics, University of South Florida, Tampa, FL 33620. (2) Department of Neurobiology and Behavior University of California, Irvine, CA 4550. 
+
+#### [Biorxiv preprint](https://doi.org/10.1101/2022.04.21.489060)
 
 
 # Porject Directory Structrue:
@@ -53,11 +55,6 @@ as indicated in the comments, which will increase the calculation time up to hou
 Although several others slower, python code 
 
 
-
 If more confortable with python,  
 
-
-
-        as indicated in the comments, which will increase the calculation time up to hours depending on the computer speed. The resulting Mathematica files are provided as PDFs (e.g. "model1 complete.pdf"). To illustrate the function of the code, some parameters were reduced in the provided code, which results in an execution time of less than a minute. The resulting Mathematica files are also provided as PDFs (e.g. "model1.pdf"). To generate the data provided in the figure 6E, further data processing is required as explained in the folder "data processing".
->>>>>>> 858669f85ca2614ec7048265767b870db774a936
 "# Er_and_Exocytosis" 
