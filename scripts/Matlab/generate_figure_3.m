@@ -568,16 +568,16 @@ figure
     
 %Get Current Figure (GCF) & Set image size before saving image
 width = 5.34*2.54;  % cm 
-height = 4.5*2.54; % cm
+height = 5.98*2.54; % cm
 set(gcf, 'PaperPosition', [0, 0, width / 2.54, height / 2.54])
 
 %Set the resolution of 1000dpi and save the plot in TIFF format 
-print -dpng -r1000 Figure_3
+print -djpeg -r1000 Figure_3
 saveas(gcf, 'Figure_3', 'fig')
 hold off
 
 
-movefile Figure_3.png ../../results/Figure_3
+movefile Figure_3.jpg ../../results/Figure_3
 movefile Figure_3.fig ../../results/Figure_3
 
 

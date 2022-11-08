@@ -715,13 +715,14 @@ height = 5.98*2.54; % cm
 set(gcf, 'PaperPosition', [0, 0, width / 2.54, height / 2.54])
 
 %Set the resolution of 1000dpi and save the plot in TIFF format 
-print -dpng -r1000 Figure_2
+print -djpeg -r1000 Figure_2
 saveas(gcf, 'Figure_2', 'fig')
 hold off
 
 
-movefile Figure_2.png ../../results/Figure_2
+movefile Figure_2.jpg ../../results/Figure_2
 movefile Figure_2.fig ../../results/Figure_2
+
 
 
 %% %%%%%%%%%%%%%%%%%%%%%%%% FITTING   FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -440,23 +440,39 @@ movefile TimeToPeakRelease_vs_Calcium.fig ../../results/Figure_1
 
 cMFB_Calcium = DoseResp_of_cMFBs(:, 1); 
 figure
+yyaxis left
 loglog(Calyx_Calcium , Calyx_PeakRelRate, ".", "Color",'#A2142F','LineWidth', 1, 'MarkerSize', 5)
 hold on
-loglog(Cac, cell2mat(AllostericModelPeakRate), "-", "Color",'#D95319', 'LineWidth', 1, 'MarkerSize', 10)
+loglog(Cac, cell2mat(AllostericModelPeakRate), "--", "Color",'#A2142F', 'LineWidth', 1, 'MarkerSize', 10)
 hold on
-loglog(Cac, cell2mat(DualSensorModelPeakRate), "-", "Color",'#0072BD', 'LineWidth', 1, 'MarkerSize', 10)
+loglog(Cac, cell2mat(DualSensorModelPeakRate), "-", "Color",'#A2142F', 'LineWidth', 1, 'MarkerSize', 10)
 hold on
+ylb1 = ylabel('Peak release rate (vesicle ms^{-1})','FontSize',6,'FontWeight','bold','Color','k');
+hold off
+ax = gca;
+ax.YColor = '#A2142F';
+
+yyaxis right
 loglog(cMFB_Calcium, cMFB_PeakRelRate, "^", "Color", '#000000', 'LineWidth', 1, 'MarkerSize', 1)
+ylb = ylabel('Release rate (ms^{-1})','FontSize',6,'FontWeight','bold','Color','k');
+%set(ylb,'rotation', 270)
+%ylb.Position(1) = 300; % change horizontal position of ylabel
+%ylb.Position(2) = 0; % change vertical position of ylabel
+%ylb.Position(3) = 0; % change vertical position of ylabel
+%set(ylb, 'Position', get(ylb, 'Position')-[-15 0.0 0.0])
+ax = gca;
+ax.YColor = 'k';
+
 hold on
-str = {'Dual Sensor:',...
-        strcat('EC_{50} =', " ", num2str(round(10^(params_dual(3)))), " ", "(\muM)"),...
-        strcat('Hill Slope =', " ", num2str(round(params_dual(4))))};
+%str = {'Dual Sensor:',...
+%        strcat('EC_{50} =', " ", num2str(round(10^(params_dual(3)))), " ", "(\muM)"),...
+%        strcat('Hill Slope =', " ", num2str(round(params_dual(4))))};
     
 title('C','FontSize',12,'FontWeight','bold','Color','k');
-text(0.02, 7, str, 'FontSize',5,'Color','k')
-legnd = legend({"Calyx of Held", 'Allosteric', 'Dual Sensor', 'cMFBs | Eshra et al.  2021'},'Location', 'southeast', 'FontSize',3);
+%text(0.02, 7, str, 'FontSize',5,'Color','k')
+legnd = legend({"Calyx of Held", 'Allosteric', 'Dual Sensor', 'cMFBs | Eshra et al.  2021'}, ...
+               'Location', 'northwest', 'FontSize',3);
 set(legnd,'position',get(legnd,'position')-[0.0 0.0 0.0 0.0])
-ylabel('Peak release rate (vesicle ms^{-1})','FontSize',6,'FontWeight','bold','Color','k')
 xlabel('Ca^{2+} (\muM)','FontSize',6,'FontWeight','bold','Color','k')
 set(gca, 'box', 'off')
 hold off

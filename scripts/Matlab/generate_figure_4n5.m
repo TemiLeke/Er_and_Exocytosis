@@ -632,12 +632,12 @@ height = 5.98*2.54; % cm
 set(gcf, 'PaperPosition', [0, 0, width / 2.54, height / 2.54])
 
 %Set the resolution of 1000dpi and save the plot in TIFF format 
-print -dpng -r1000 Figure_4
+print -djpeg -r1000 Figure_4
 saveas(gcf, 'Figure_4', 'fig')
 hold off
 
 
-movefile Figure_4.png ../../results/Figure_4
+movefile Figure_4.jpg ../../results/Figure_4
 movefile Figure_4.fig ../../results/Figure_4
 
 %% Correlation between Spike Train and Release Events
@@ -819,12 +819,12 @@ figure
     set(gcf, 'PaperPosition', [0, 0, width / 2.54, height / 2.54])
 
     %Set the resolution of 1000dpi and save the plot in TIFF format 
-    print -dpng -r1000 Figure_5
+    print -djpeg -r1000 Figure_5
     saveas(gcf, 'Figure_5', 'fig')
     hold off
 
 
-movefile Figure_5.png ../../results/Figure_5
+movefile Figure_5.jpg ../../results/Figure_5
 movefile Figure_5.fig ../../results/Figure_5
 
 %% Plot zoomed in version of AZ calcium to show desynchronization
@@ -853,11 +853,11 @@ movefile Figure_5.fig ../../results/Figure_5
     set(gcf, 'PaperPosition', [0, 0, width / 1.54, height / 1.54])
 
     %Set the resolution of 1000dpi and save the plot in TIFF format 
-    print -dpng -r1000 Figure_4_zoom
+    print -djpeg -r1000 Figure_4_zoom
+    saveas(gcf, 'Figure_4_zoom', 'fig')
     hold off
 
-
-    movefile Figure_4_zoom.png ../../results/Figure_4
+    movefile Figure_4_zoom.jpg ../../results/Figure_4
     movefile Figure_4_zoom.fig ../../results/Figure_4
 
 
