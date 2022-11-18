@@ -10,7 +10,7 @@ The code was used in the following publication:
 #### [MDPI](https://www.mdpi.com/2073-4409/11/14/2167)
 
 
-# Porject Directory Structrue:
+# Project Directory Structrue:
 
 - data : Simulation and raw project data for AD and WT configurations as specified in methods
 - docs : documentation and Markdown
