@@ -37,4 +37,4 @@ The paramter ```cell_condition``` specifies the simulation configuration and tak
 
 Although several orders slower, we include and equivalent (not maintained) python code that attempts to reproduce Matlab results.
 
-Raw data generated from either simulation is saved into "../data/<stimulation condition>", and must subsequently be processed using "data_processing.py" in "../scripts/Python/". To reproduce results/figures in the paper, the processed data can then be run with scripts prefixed with `generate_figure_`. Supplemental figures can also be generated using scripts prefixed with `supp_figure_` that asssess processed data.
+Raw data generated from either simulation is saved into "../data/<stimulation condition>", and must subsequently be processed using "data_processing.py" in "../scripts/Python/". To reproduce results/figures in the paper, the processed data can then be run with scripts prefixed with `generate_figure_`. Supplemental figures can also be generated using scripts prefixed with `supp_figure_` that use processed data.
