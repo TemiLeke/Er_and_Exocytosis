@@ -3,7 +3,7 @@ ________________________________________________________________________________
 
 The code was used in the following publication:
 
-#### Title: Upregulated Ca2+ Release from the Endoplasmic Reticulum Leads to Impaired Presynaptic Function in Familial Alzheimer's Disease.
+#### Title: [Upregulated Ca2+ Release from the Endoplasmic Reticulum Leads to Impaired Presynaptic Function in Familial Alzheimer's Disease.](https://www.mdpi.com/2073-4409/11/14/2167)
 #### Authors:  Temitope Adeoye (1), Syed Shah (1), David A Rabson (1), Ghanim Ullah (1), and Angelo Demuro(2), 
 #### (1) Department of Physics, University of South Florida, Tampa, FL 33620. (2) Department of Neurobiology and Behavior University of California, Irvine, CA 4550. 
 
